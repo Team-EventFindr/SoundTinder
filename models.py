@@ -15,4 +15,4 @@ class Rating(db.Model):
     movie_id = db.Column(db.Integer)
 
 
-db.create_all()
+# db.create_all()
