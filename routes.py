@@ -6,9 +6,7 @@ import flask
 from flask_login import login_user, current_user, LoginManager, logout_user
 from flask_login.utils import login_required
 from models import User
-from oauthlib.oauth2 import (
-    WebApplicationClient,
-)  # will be used later on for Google sign-in, Possible Spotify Integration?
+from oauthlib.oauth2 import (WebApplicationClient,)  # will be used later on for Google sign-in, Possible Spotify Integration?
 from werkzeug.security import generate_password_hash, check_password_hash
 
 login_manager = LoginManager()
@@ -82,24 +80,9 @@ def logout():
 @app.route("/index")
 @login_required
 def index():
-    movie_id = random.choice(MOVIE_IDS)
-
+    
     # API calls
-    (title, tagline, genre, poster_image) = get_movie_data(movie_id)
-    wikipedia_url = get_wiki_link(title)
-
-    ratings = Rating.query.filter_by(movie_id=movie_id).all()
-
-    return flask.render_template(
-        "index.html",
-        title=title,
-        tagline=tagline,
-        genre=genre,
-        poster_image=poster_image,
-        wiki_url=wikipedia_url,
-        ratings=ratings,
-        movie_id=movie_id,
-    )
+    
 
 
 if __name__ == "__main__":

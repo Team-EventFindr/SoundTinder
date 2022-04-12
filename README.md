@@ -10,4 +10,4 @@ export DATABASE_URL="<YOUR POSTGRESQL DB URL>"
 1. Run `python routes.py`
 
 "# SoundTinder" 
-"# soundtinder" 
+"# soundTinder" 
